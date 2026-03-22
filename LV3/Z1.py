@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-data = pd.read_csv('LV3/data_C02_emission.csv')
+data = pd.read_csv('data_C02_emission.csv')
 
 # a)
 print(f"Broj mjerenja: {data.shape[0]}")

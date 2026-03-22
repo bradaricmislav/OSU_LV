@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('LV3/data_C02_emission.csv')
+data = pd.read_csv('data_C02_emission.csv')
 
 #a)
 plt.hist(data["CO2 Emissions (g/km)"], bins=30)
