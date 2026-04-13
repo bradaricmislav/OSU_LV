@@ -89,7 +89,7 @@ KNN_model.fit(X_train_n, y_train)
 y_train_p = KNN_model.predict(X_train_n)
 y_test_p = KNN_model.predict(X_test_n)
 
-print("KNN modeL: \n")
+print("KNN modeL:")
 print("Tocnost train: " + "{:0.3f}".format(accuracy_score(y_train, y_train_p)))
 print("Tocnost test: " + "{:0.3f}".format(accuracy_score(y_test, y_test_p)))
 
@@ -124,7 +124,7 @@ print("Najbolji K:", grid.best_params_)
 print("Najbolja točnost:", grid.best_score_)
 
 #Zadatak 3 
-svm_model = svm.SVC(kernel='rbf', C=1, gamma=0.1)
+svm_model = svm.SVC(kernel='rbf', C=1, gamma=0.01)
 svm_model.fit(X_train_n, y_train)
 
 y_test_svm = svm_model.predict(X_test_n)
