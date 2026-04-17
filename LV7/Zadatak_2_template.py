@@ -4,7 +4,7 @@ import matplotlib.image as Image
 from sklearn.cluster import KMeans
 
 # ucitaj sliku
-img = Image.imread("imgs\\test_1.jpg")
+img = Image.imread("imgs\\test_5.jpg")
 
 # prikazi originalnu sliku
 plt.figure()
@@ -28,7 +28,7 @@ unique_colors = np.unique(img_array, axis=0)
 print("Broj različitih boja:", len(unique_colors))
 
 #2)
-k = 5  
+k = 5
 kmeans = KMeans(n_clusters=k, random_state=0)
 labels = kmeans.fit_predict(img_array)
 centers = kmeans.cluster_centers_
@@ -63,7 +63,8 @@ plt.title("Elbow metoda")
 plt.show()
 
 #7)
-for i in range(k):
+k_final = 5
+for i in range(k_final):
     mask = (labels == i)
     binary_img = mask.reshape(w, h)
 

@@ -39,7 +39,7 @@ def generate_data(n_samples, flagc):
     return X
 
 # generiranje podatkovnih primjera
-X = generate_data(500, 1)
+X = generate_data(500, 5)
 
 # prikazi primjere u obliku dijagrama rasprsenja
 plt.figure()
@@ -49,7 +49,7 @@ plt.ylabel('$x_2$')
 plt.title('podatkovni primjeri')
 plt.show()
 
-K = 3
+K = 2
 kmeans = KMeans(n_clusters=K, init='random', n_init=5, random_state=0)
 labels = kmeans.fit_predict(X)
 
