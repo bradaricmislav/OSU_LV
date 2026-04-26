@@ -1,3 +1,8 @@
+# Zadatak 8.4.2 Napišite skriptu koja ce u ´ citati izgra ˇ denu mrežu iz zadatka 1 i MNIST skup ¯
+# podataka. Pomocu matplotlib biblioteke potrebno je prikazati nekoliko loše klasi ´ ficiranih slika iz
+# skupa podataka za testiranje. Pri tome u naslov slike napišite stvarnu oznaku i oznaku predvidenu ¯
+# mrežom.
+
 import numpy as np
 import keras
 from matplotlib import pyplot as plt

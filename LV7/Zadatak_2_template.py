@@ -1,3 +1,24 @@
+# Zadatak 7.5.2 Kvantizacija boje je proces smanjivanja broja razlicitih boja u digitalnoj slici, ali ˇ
+# uzimajuci u obzir da rezultantna slika vizualno bude što sli ´ cnija originalnoj slici. Jednostavan ˇ
+# nacin kvantizacije boje može se posti ˇ ci primjenom algoritma ´ K srednjih vrijednosti na RGB
+# vrijednosti elemenata originalne slike. Kvantizacija se tada postiže zamjenom vrijednosti svakog
+# elementa originalne slike s njemu najbližim centrom. Na slici 7.3a dan je primjer originalne
+# slike koja sadrži ukupno 106,276 boja, dok je na slici 7.3b prikazana rezultantna slika nakon
+# kvantizacije i koja sadrži samo 5 boja koje su odredene algoritmom ¯ K srednjih vrijednosti.
+# 1. Otvorite skriptu zadatak_2.py. Ova skripta ucitava originalnu RGB sliku ˇ test_1.jpg
+# te ju transformira u podatkovni skup koji dimenzijama odgovara izrazu (7.2) pri cemu je ˇ n
+# broj elemenata slike, a m je jednak 3. Koliko je razlicitih boja prisutno u ovoj slici? ˇ
+# 2. Primijenite algoritam K srednjih vrijednosti koji ce prona ´ ci grupe u RGB vrijednostima ´
+# elemenata originalne slike.
+# 3. Vrijednost svakog elementa slike originalne slike zamijeni s njemu pripadajucim centrom. ´
+# 4. Usporedite dobivenu sliku s originalnom. Mijenjate broj grupa K. Komentirajte dobivene
+# rezultate.
+# 5. Primijenite postupak i na ostale dostupne slike.
+# 6. Graficki prikažite ovisnost ˇ J o broju grupa K. Koristite atribut inertia objekta klase
+# KMeans. Možete li uociti lakat koji upu ˇ cuje na optimalni broj grupa? ´
+# 7. Elemente slike koji pripadaju jednoj grupi prikažite kao zasebnu binarnu sliku. Što
+# primjecujete?
+
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as Image

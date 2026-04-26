@@ -1,3 +1,9 @@
+# Zadatak 8.4.3 Napišite skriptu koja ce u ´ citati izgra ˇ denu mrežu iz zadatka 1. Nadalje, skripta ¯
+# treba ucitati sliku ˇ test.png sa diska. Dodajte u skriptu kod koji ce prilagoditi sliku za mrežu, ´
+# klasificirati sliku pomocu izgra ´ dene mreže te ispisati rezultat u terminal. Promijenite sliku ¯
+# pomocu nekog gra ´ fickog alata (npr. pomo ˇ cu Windows Paint-a nacrtajte broj 2) i ponovo pokrenite ´
+# skriptu. Komentirajte dobivene rezultate za razlicite napisane znamenke.
+
 import numpy as np
 import keras
 from matplotlib import pyplot as plt

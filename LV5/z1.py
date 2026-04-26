@@ -1,3 +1,20 @@
+# Zadatak 5.5.1 Skripta zadatak_1.py generira umjetni binarni klasifikacijski problem s dvije
+# ulazne velicine. Podaci su podijeljeni na skup za u ˇ cenje i skup za testiranje modela. ˇ
+# a) Prikažite podatke za ucenje u ˇ x1 −x2 ravnini matplotlib biblioteke pri cemu podatke obojite ˇ
+# s obzirom na klasu. Prikažite i podatke iz skupa za testiranje, ali za njih koristite drugi
+# marker (npr. ’x’). Koristite funkciju scatter koja osim podataka prima i parametre c i
+# cmap kojima je moguce de ´ finirati boju svake klase.
+# b) Izgradite model logisticke regresije pomo ˇ cu scikit-learn biblioteke na temelju skupa poda- ´
+# taka za ucenje. ˇ
+# c) Pronadite u atributima izgra ¯ denog modela parametre modela. Prikažite granicu odluke ¯
+# naucenog modela u ravnini ˇ x1 − x2 zajedno s podacima za ucenje. Napomena: granica ˇ
+# odluke u ravnini x1 −x2 definirana je kao krivulja: θ0 +θ1x1 +θ2x2 = 0.
+# d) Provedite klasifikaciju skupa podataka za testiranje pomocu izgra ´ denog modela logisti ¯ cke ˇ
+# regresije. Izracunajte i prikažite matricu zabune na testnim podacima. Izra ˇ cunate to ˇ cnost, ˇ
+# preciznost i odziv na skupu podataka za testiranje.
+# e) Prikažite skup za testiranje u ravnini x1 −x2. Zelenom bojom oznacite dobro klasi ˇ ficirane
+# primjere dok pogrešno klasificirane primjere oznacite crnom bojom.
+
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt

@@ -1,3 +1,15 @@
+# Zadatak 3.4.2 Napišite programski kod koji ce prikazati sljede ´ ce vizualizacije: ´
+# a) Pomocu histograma prikažite emisiju C02 plinova. Komentirajte dobiveni prikaz. ´
+# b) Pomocu dijagrama raspršenja prikažite odnos izme ´ du gradske potrošnje goriva i emisije ¯
+# C02 plinova. Komentirajte dobiveni prikaz. Kako biste bolje razumjeli odnose izmedu¯
+# velicina, obojite to ˇ ckice na dijagramu raspršenja s obzirom na tip goriva. ˇ
+# c) Pomocu kutijastog dijagrama prikažite razdiobu izvangradske potrošnje s obzirom na tip ´
+# goriva. Primjecujete li grubu mjernu pogrešku u podacima? ´
+# d) Pomocu stup ´ castog dijagrama prikažite broj vozila po tipu goriva. Koristite metodu ˇ
+# groupby.
+# e) Pomocu stup ´ castog grafa prikažite na istoj slici prosje ˇ cnu C02 emisiju vozila s obzirom na ˇ
+# broj cilindara.
+
 import pandas as pd
 import matplotlib.pyplot as plt
 

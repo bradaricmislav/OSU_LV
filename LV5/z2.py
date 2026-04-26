@@ -1,3 +1,25 @@
+# Zadatak 5.5.2 Skripta zadatak_2.py ucitava podatkovni skup Palmer Penguins [1]. Ovaj ˇ
+# podatkovni skup sadrži mjerenja provedena na tri razlicite vrste pingvina (’Adelie’, ’Chins- ˇ
+# trap’, ’Gentoo’) na tri razlicita otoka u podru ˇ cju Palmer Station, Antarktika. Vrsta pingvina ˇ
+# odabrana je kao izlazna velicina i pri tome su klase ozna ˇ cene s cjelobrojnim vrijednostima ˇ
+# 0, 1 i 2. Ulazne velicine su duljina kljuna (’bill_length_mm’) i duljina peraje u mm (’ ˇ flipper_length_mm’). Za vizualizaciju podatkovnih primjera i granice odluke u skripti je dostupna
+# funkcija plot_decision_region.
+# a) Pomocu stup ´ castog dijagrama prikažite koliko primjera postoji za svaku klasu (vrstu ˇ
+# pingvina) u skupu podataka za ucenje i skupu podataka za testiranje. Koristite numpy ˇ
+# funkciju unique.
+# b) Izgradite model logisticke regresije pomo ˇ cu scikit-learn biblioteke na temelju skupa poda- ´
+# taka za ucenje. ˇ
+# c) Pronadite u atributima izgra ¯ denog modela parametre modela. Koja je razlika u odnosu na ¯
+# binarni klasifikacijski problem iz prvog zadatka?
+# d) Pozovite funkciju plot_decision_region pri cemu joj predajte podatke za u ˇ cenje i ˇ
+# izgradeni model logisti ¯ cke regresije. Kako komentirate dobivene rezultate? ˇ
+# e) Provedite klasifikaciju skupa podataka za testiranje pomocu izgra ´ denog modela logisti ¯ cke ˇ
+# regresije. Izracunajte i prikažite matricu zabune na testnim podacima. Izra ˇ cunajte to ˇ cnost. ˇ
+# Pomocu c ´ lassification_report funkcije izracunajte vrijednost ˇ cetiri glavne metrike
+# na skupu podataka za testiranje.
+# f) Dodajte u model još ulaznih velicina. Što se doga ˇ da s rezultatima klasi ¯ fikacije na skupu
+# podataka za testiranje?
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt

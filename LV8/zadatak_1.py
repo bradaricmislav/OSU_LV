@@ -1,3 +1,20 @@
+# Zadatak 8.4.1 MNIST podatkovni skup za izgradnju klasifikatora rukom pisanih znamenki
+# dostupan je u okviru Keras-a. Skripta zadatak_1.py ucitava MNIST podatkovni skup te podatke ˇ
+# priprema za ucenje potpuno povezane mreže. ˇ
+# 1. Upoznajte se s ucitanim podacima. Koliko primjera sadrži skup za u ˇ cenje, a koliko skup za ˇ
+# testiranje? Kako su skalirani ulazni podaci tj. slike? Kako je kodirana izlazne velicina? ˇ
+# 2. Pomocu matplotlib biblioteke prikažite jednu sliku iz skupa podataka za u ´ cenje te ispišite ˇ
+# njezinu oznaku u terminal.
+# 3. Pomocu klase ´ Sequential izgradite mrežu prikazanu na slici 8.5. Pomocu metode ´
+# .summary ispišite informacije o mreži u terminal.
+# 4. Pomocu metode ´ .compile podesite proces treniranja mreže.
+# 5. Pokrenite ucenje mreže (samostalno de ˇ finirajte broj epoha i velicinu serije). Pratite tijek ˇ
+# ucenja u terminalu. ˇ
+# 6. Izvršite evaluaciju mreže na testnom skupu podataka pomocu metode ´ .evaluate.
+# 7. Izracunajte predikciju mreže za skup podataka za testiranje. Pomo ˇ cu scikit-learn biblioteke ´
+# prikažite matricu zabune za skup podataka za testiranje.
+# 8. Pohranite model na tvrdi disk.
+
 import numpy as np
 from tensorflow import keras
 from tensorflow.keras import layers

@@ -1,3 +1,10 @@
+# Zadatak 2.4.3 Skripta zadatak_3.py ucitava sliku ’ ˇ road.jpg’. Manipulacijom odgovarajuce´
+# numpy matrice pokušajte:
+# a) posvijetliti sliku,
+# b) prikazati samo drugu cetvrtinu slike po širini, ˇ
+# c) zarotirati sliku za 90 stupnjeva u smjeru kazaljke na satu,
+# d) zrcaliti sliku.
+
 import numpy as np
 import matplotlib.pyplot as plt
 

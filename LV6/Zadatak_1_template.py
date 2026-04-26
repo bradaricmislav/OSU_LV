@@ -1,3 +1,26 @@
+# Zadatak 6.5.1 Skripta zadatak_1.py ucitava ˇ Social_Network_Ads.csv skup podataka [2].
+# Ovaj skup sadrži podatke o korisnicima koji jesu ili nisu napravili kupovinu za prikazani oglas.
+# Podaci o korisnicima su spol, dob i procijenjena placa. Razmatra se binarni klasi ´ fikacijski
+# problem gdje su dob i procijenjena placa ulazne veli ´ cine, dok je kupovina (0 ili 1) izlazna ˇ
+# velicina. Za vizualizaciju podatkovnih primjera i granice odluke u skripti je dostupna funkcija ˇ
+# plot_decision_region [1]. Podaci su podijeljeni na skup za ucenje i skup za testiranje modela ˇ
+# u omjeru 80%-20% te su standardizirani. Izgraden je model logisti ¯ cke regresije te je izra ˇ cunata ˇ
+# njegova tocnost na skupu podataka za u ˇ cenje i skupu podataka za testiranje. Potrebno je: ˇ
+# 1. Izradite algoritam KNN na skupu podataka za ucenje (uz ˇ K=5). Izracunajte to ˇ cnost ˇ
+# klasifikacije na skupu podataka za ucenje i skupu podataka za testiranje. Usporedite ˇ
+# dobivene rezultate s rezultatima logisticke regresije. Što primje ˇ cujete vezano uz dobivenu ´
+# granicu odluke KNN modela?
+# 2. Kako izgleda granica odluke kada je K =1 i kada je K = 100?
+# Zadatak 6.5.2 Pomocu unakrsne validacije odredite optimalnu vrijednost hiperparametra ´ K
+# algoritma KNN za podatke iz Zadatka 1.
+# Zadatak 6.5.3 Na podatke iz Zadatka 1 primijenite SVM model koji koristi RBF kernel funkciju
+# te prikažite dobivenu granicu odluke. Mijenjajte vrijednost hiperparametra C i γ. Kako promjena
+# ovih hiperparametara utjece na granicu odluke te pogrešku na skupu podataka za testiranje? ˇ
+# Mijenjajte tip kernela koji se koristi. Što primjecujete? ´
+# Zadatak 6.5.4 Pomocu unakrsne validacije odredite optimalnu vrijednost hiperparametra ´ C i γ
+# algoritma SVM za problem iz Zadatka 1.
+
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt

@@ -1,3 +1,13 @@
+# Zadatak 9.4.3 Dodajte funkciju povratnog poziva za rano zaustavljanje koja ce zaustaviti proces ´
+# ucenja nakon što se 5 uzastopnih epoha ne smanji prosje ˇ cna vrijednost funkcije gubitka na ˇ
+# validacijskom skupu.
+
+# Zadatak 9.4.4 Što se dogada s procesom u ¯ cenja: ˇ
+# 1. ako se koristi jako velika ili jako mala velicina serije? ˇ
+# 2. ako koristite jako malu ili jako veliku vrijednost stope ucenja? ˇ
+# 3. ako izbacite odredene slojeve iz mreže kako biste dobili manju mrežu? ¯
+# 4. ako za 50% smanjite velicinu skupa za u ˇ cenje?
+
 import numpy as np
 from tensorflow import keras
 from tensorflow.keras import layers

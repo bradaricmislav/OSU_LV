@@ -1,3 +1,8 @@
+# Zadatak 9.4.2 Modificirajte skriptu iz prethodnog zadatka na nacin da na odgovaraju ˇ ca mjesta u ´
+# mrežu dodate droput slojeve. Prije pokretanja ucenja promijenite Tensorboard funkciju povratnog ˇ
+# poziva na nacin da informacije zapisuje u novi direktorij (npr. ˇ =/log/cnn_droput). Pratite tijek
+# ucenja. Kako komentirate utjecaj ˇ dropout slojeva na performanse mreže?
+
 import numpy as np
 from tensorflow import keras
 from tensorflow.keras import layers

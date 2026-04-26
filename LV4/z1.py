@@ -1,3 +1,25 @@
+# Zadatak 4.5.1 Skripta zadatak_1.py ucitava podatkovni skup iz ˇ data_C02_emission.csv.
+# Potrebno je izgraditi i vrednovati model koji procjenjuje emisiju C02 plinova na temelju ostalih numerickih ulaznih veli ˇ cina. Detalje oko ovog podatkovnog skupa mogu se prona ˇ ci u 3. ´
+# laboratorijskoj vježbi.
+# a) Odaberite željene numericke veli ˇ cine speci ˇ ficiranjem liste s nazivima stupaca. Podijelite
+# podatke na skup za ucenje i skup za testiranje u omjeru 80%-20%. ˇ
+# b) Pomocu matplotlib biblioteke i dijagrama raspršenja prikažite ovisnost emisije C02 plinova ´
+# o jednoj numerickoj veli ˇ cini. Pri tome podatke koji pripadaju skupu za u ˇ cenje ozna ˇ cite ˇ
+# plavom bojom, a podatke koji pripadaju skupu za testiranje oznacite crvenom bojom. ˇ
+# c) Izvršite standardizaciju ulaznih velicina skupa za u ˇ cenje. Prikažite histogram vrijednosti ˇ
+# jedne ulazne velicine prije i nakon skaliranja. Na temelju dobivenih parametara skaliranja ˇ
+# transformirajte ulazne velicine skupa podataka za testiranje. ˇ
+# d) Izgradite linearni regresijski modeli. Ispišite u terminal dobivene parametre modela i
+# povežite ih s izrazom 4.6.
+# e) Izvršite procjenu izlazne velicine na temelju ulaznih veli ˇ cina skupa za testiranje. Prikažite ˇ
+# pomocu dijagrama raspršenja odnos izme ´ du stvarnih vrijednosti izlazne veli ¯ cine i procjene ˇ
+# dobivene modelom.
+# f) Izvršite vrednovanje modela na nacin da izra ˇ cunate vrijednosti regresijskih metrika na ˇ
+# skupu podataka za testiranje.
+# g) Što se dogada s vrijednostima evaluacijskih metrika na testnom skupu kada mijenjate broj ¯
+# ulaznih velicina?
+
+
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
