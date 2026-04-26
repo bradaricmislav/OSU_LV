@@ -90,6 +90,7 @@ y = df[output_variable].to_numpy()
 # podjela train/test
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 123)
 
+
 #a) 
 speciesTrain, countsTrain = np.unique(y_train, return_counts=True)
 speciesTest, countsTest = np.unique(y_test, return_counts=True)
@@ -108,12 +109,12 @@ print("Intercept:", model.intercept_)
 print("Koeficijenti:\n", model.coef_)
 
 #d)
-# plot_decision_regions(X_train, y_train, model)
-# plt.xlabel("bill_length_mm")
-# plt.ylabel("flipper_length_mm")
-# plt.title("Granice odluke (train)")
-# plt.legend()
-# plt.show()
+plot_decision_regions(X_train, y_train.ravel(), model)
+plt.xlabel("bill_length_mm")
+plt.ylabel("flipper_length_mm")
+plt.title("Granice odluke (train)")
+plt.legend()
+plt.show()
 
 #e)
 y_pred = model.predict(X_test)

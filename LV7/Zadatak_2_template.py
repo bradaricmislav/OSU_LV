@@ -93,3 +93,62 @@ for i in range(k_final):
     plt.title(f"Klaster {i}")
     plt.imshow(binary_img, cmap='gray')
     plt.show()
+
+# Analiza dobivenih rješenja
+
+# U ovom zadatku primijenjen je algoritam K-srednjih vrijednosti (K-Means) za kvantizaciju boje slike. 
+# Cilj postupka bio je smanjiti broj različitih boja u slici, uz zadržavanje što sličnijeg vizualnog izgleda originalu.
+
+# Najprije je učitana RGB slika te su vrijednosti piksela normalizirane u raspon od 0 do 1. 
+# Svaki piksel slike promatra se kao jedan podatkovni primjer s tri značajke – crvena (R), zelena (G) i plava (B) komponenta. 
+# Na taj način slika je transformirana u 2D matricu oblika (broj piksela × 3).
+
+# Izračunom funkcije np.unique() dobiven je broj različitih boja prisutnih u originalnoj slici. 
+# Taj broj je vrlo velik jer gotovo svaki piksel može imati blago različitu RGB vrijednost, posebno kod fotografija i prirodnih scena.
+
+# Primjenom K-Means algoritma s odabranim brojem klastera K = 5 određeno je pet dominantnih boja slike. 
+# Svakom pikselu dodijeljen je najbliži centroid te je njegova originalna boja zamijenjena bojom centra pripadajućeg klastera. 
+# Rezultat je kvantizirana slika koja sadrži znatno manji broj boja, ali i dalje zadržava osnovni vizualni sadržaj.
+
+# Povećanjem broja klastera K dobiva se kvalitetnija aproksimacija originalne slike jer model koristi više boja i bolje opisuje detalje slike. 
+# Smanjenjem vrijednosti K slika postaje jednostavnija, gubi detalje i pojavljuju se vidljive prijelazne granice između boja.
+
+# Grafički prikaz ovisnosti funkcije cilja J (inertia) o broju klastera K pokazuje opadanje pogreške povećanjem broja grupa. 
+# U određenom trenutku smanjenje pogreške postaje znatno sporije, što predstavlja tzv. „lakat” i može pomoći pri odabiru optimalnog broja klastera.
+
+# Prikaz binarnih slika pojedinih klastera omogućuje uvid u to koji dijelovi slike pripadaju određenoj dominantnoj boji. 
+# Često se može primijetiti da jedan klaster odgovara pozadini, drugi objektima u prvom planu, a ostali različitim nijansama osvjetljenja i sjena.
+
+# Kritički osvrt na rezultate
+
+# Rezultati pokazuju da K-Means predstavlja vrlo jednostavnu i učinkovitu metodu za kvantizaciju boje, 
+# posebno kada je cilj smanjenje memorijskih zahtjeva ili pojednostavljenje slike.
+
+# Međutim, algoritam ima određena ograničenja. K-Means koristi euklidsku udaljenost u RGB prostoru, što ne odgovara uvijek ljudskoj percepciji boja. 
+# Dvije boje koje su matematički bliske ne moraju nužno biti vizualno slične.
+
+# Također, algoritam zanemaruje prostorni raspored piksela. Svaki piksel promatra se neovisno o svojoj poziciji u slici, 
+# zbog čega se mogu pojaviti vizualno neprirodni prijelazi između područja.
+
+# Odabir broja klastera K značajno utječe na kvalitetu rezultata. Premali K dovodi do velikog gubitka detalja, 
+# dok preveliki K smanjuje korist kvantizacije jer slika ostaje gotovo jednako složena kao original.
+
+# Algoritam je također osjetljiv na inicijalizaciju centroida, pa različita pokretanja mogu dati nešto različite rezultate, 
+# posebno kod složenijih slika s velikim brojem nijansi.
+
+# Predlaganje mogućih poboljšanja
+
+# Jedno od mogućih poboljšanja bilo bi korištenje metode Elbow za sustavniji odabir optimalnog broja klastera K umjesto ručnog odabira vrijednosti poput K = 5.
+
+# Također, mogla bi se koristiti Silhouette analiza kao dodatna metoda procjene kvalitete grupiranja boja.
+
+# Umjesto RGB prostora, bolji rezultati često se mogu postići korištenjem perceptualno prikladnijih prostora boja poput LAB ili HSV, 
+# jer oni bolje odgovaraju načinu na koji čovjek percipira razlike među bojama.
+
+# Dodatno poboljšanje bilo bi uključivanje prostornih koordinata piksela (x, y) zajedno s RGB vrijednostima kako bi algoritam uzeo u obzir i 
+# položaj piksela u slici, čime bi se smanjili neprirodni prijelazi.
+
+# Moguće je isprobati i druge metode grupiranja poput Gaussian Mixture Models ili hijerarhijskog grupiranja koje ponekad daju kvalitetnije rezultate za složenije slike.
+
+# Na kraju, korisno bi bilo usporediti rezultate na više različitih slika – portretima, pejzažima i objektima – 
+# kako bi se bolje razumjelo u kojim situacijama K-Means daje najbolje rezultate za kvantizaciju boje.

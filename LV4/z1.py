@@ -31,51 +31,119 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 data = pd.read_csv('data_C02_emission.csv')
+print(data.head())
+print(data.info())
+print(data.describe())
+# #a)
+# numeric_features = ['Engine Size (L)', 'Cylinders', 'Fuel Consumption City (L/100km)', 'Fuel Consumption Hwy (L/100km)']
+# x = data[numeric_features]
+# y = data['CO2 Emissions (g/km)']
 
-#a)
-numeric_features = ['Engine Size (L)', 'Cylinders', 'Fuel Consumption City (L/100km)', 'Fuel Consumption Hwy (L/100km)']
-x = data[numeric_features]
-y = data['CO2 Emissions (g/km)']
+# x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=1)
 
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=1)
+# #b)
+# plt.scatter(x_train['Engine Size (L)'], y_train, c='blue')
+# plt.scatter(x_test['Engine Size (L)'], y_test, c='red')
+# plt.xlabel('Engine Size (L)')
+# plt.ylabel('CO2 Emissions (g/km)')
+# plt.title('Ovisnost emisije CO2 o veličini motora')
+# plt.legend()
+# plt.show()
 
-#b)
-plt.scatter(x_train['Engine Size (L)'], y_train, c='blue')
-plt.scatter(x_test['Engine Size (L)'], y_test, c='red')
-plt.xlabel('Engine Size (L)')
-plt.ylabel('CO2 Emissions (g/km)')
-plt.title('Ovisnost emisije CO2 o veličini motora')
-plt.legend()
-plt.show()
+# #c)
+# plt.hist(x_train['Engine Size (L)'])
+# plt.title('Prije skaliranja (Engine Size)')
+# plt.show()
 
-#c)
-plt.hist(x_train['Engine Size (L)'])
-plt.title('Prije skaliranja (Engine Size)')
-plt.show()
+# sc = MinMaxScaler()
+# X_train_n = sc.fit_transform(x_train)
+# X_test_n = sc.transform(x_test)
+# plt.hist(X_train_n[:, 0])
+# plt.title('Nakon skaliranja (Engine Size)')
+# plt.show()
 
-sc = MinMaxScaler()
-X_train_n = sc.fit_transform(x_train)
-X_test_n = sc.transform(x_test)
-plt.hist(X_train_n[:, 0])
-plt.title('Nakon skaliranja (Engine Size)')
-plt.show()
+# #d)
+# linearModel = lm.LinearRegression()
+# linearModel.fit(X_train_n, y_train)
+# print(linearModel.coef_)
 
-#d)
-linearModel = lm.LinearRegression()
-linearModel.fit(X_train_n, y_train)
-print(linearModel.coef_)
+# #e)
+# y_test_p = linearModel.predict(X_test_n)
+# plt.scatter(y_test, y_test_p)
+# plt.xlabel('Stvarne vrijednosti')
+# plt.ylabel('Procjena modela')
+# plt.title('Odnos stvarnih vrijednosti i procjene')
+# plt.show()
 
-#e)
-y_test_p = linearModel.predict(X_test_n)
-plt.scatter(y_test, y_test_p)
-plt.xlabel('Stvarne vrijednosti')
-plt.ylabel('Procjena modela')
-plt.title('Odnos stvarnih vrijednosti i procjene')
-plt.show()
+# #f)
+# print(f"MAE: {mean_absolute_error(y_test, y_test_p)}")
+# print(f"MSE: {mean_squared_error(y_test, y_test_p)}")
+# print(f"MAPE: {mean_absolute_percentage_error(y_test, y_test_p)}")
+# print(f"RMSE: {np.sqrt(mean_squared_error(y_test, y_test_p))}")
+# print(f"R2 score: {r2_score(y_test, y_test_p)}")
 
-#f)
-print(f"MAE: {mean_absolute_error(y_test, y_test_p)}")
-print(f"MSE: {mean_squared_error(y_test, y_test_p)}")
-print(f"MAPE: {mean_absolute_percentage_error(y_test, y_test_p)}")
-print(f"RMSE: {mean_squared_error(y_test, y_test_p)}")
-print(f"R2 score: {r2_score(y_test, y_test_p)}")
+# Analiza dobivenog rješenja
+# 1. Opis problema i modela
+
+# U ovom zadatku provodi se regresijska analiza za predikciju emisije CO2 (g/km) na temelju karakteristika vozila (veličina motora, broj cilindara i potrošnja goriva u gradu i na autocesti).
+
+# Korišten je linearni regresijski model, pri čemu su ulazne varijable prethodno skalirane pomoću MinMaxScaler-a.
+
+# 2. Analiza podataka i vizualizacije
+
+# Scatter dijagram između veličine motora i emisije CO2 pokazuje:
+
+# jasnu pozitivnu korelaciju
+# veći motor → veća emisija CO2
+# testni i trening podaci su dobro raspoređeni, što znači da je podjela podataka korektna
+
+# Histogram prije i poslije skaliranja pokazuje:
+
+# prije skaliranja: vrijednosti su u različitim rasponima
+# nakon MinMax skaliranja: sve vrijednosti su u rasponu [0,1]
+
+# zaključak: skaliranje je ispravno provedeno i pomaže modelu da bolje uspoređuje značajke
+
+# 3. Model linearne regresije
+
+# Linearni model je naučio koeficijente za svaku značajku:
+
+# veći koeficijent → veći utjecaj na emisiju CO2
+# očekivano:
+# Fuel Consumption ima najveći utjecaj
+# Engine Size i Cylinders također pozitivno doprinose
+
+# model je interpretabilan, što je prednost linearne regresije
+
+# 4. Vizualna procjena modela
+
+# Graf usporedbe stvarnih i predviđenih vrijednosti pokazuje:
+
+# većina točaka je blizu dijagonale → model dobro predviđa
+# postoji određeno odstupanje, posebno kod ekstremnih vrijednosti
+
+# model je dobar, ali nije savršen u hvatanju svih varijacija
+
+# 5. Evaluacija modela
+
+# Dobivene metrike:
+
+# MAE (Mean Absolute Error): prosječna apsolutna pogreška → daje intuitivnu mjeru odstupanja
+# MSE (Mean Squared Error): naglašava veće pogreške
+# RMSE: u kodu je greška → isti je kao MSE, ali trebao bi biti korijen iz MSE
+# MAPE: relativna pogreška u postocima
+# R² score: pokazuje koliko model objašnjava varijabilnost podataka
+
+# R² blizu 1 znači da model dobro opisuje podatke
+
+# Kritički osvrt
+# Prednosti modela:
+# jednostavan i interpretabilan
+# dobra osnovna predikcija
+# skaliranje je ispravno primijenjeno
+# jasna korelacija između varijabli i cilja
+
+# Nedostaci:
+# Linearna pretpostavka
+# model pretpostavlja linearnu vezu između varijabli i CO2
+# u stvarnosti odnosi mogu biti nelinearni

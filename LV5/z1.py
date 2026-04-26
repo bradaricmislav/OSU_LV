@@ -86,3 +86,23 @@ plt.ylabel('x2')
 plt.title('Rezultati klasifikacije (test)')
 plt.legend()
 plt.show()
+
+
+# Analiza dobivenih rješenja
+
+# Logistička regresija uspješno modelira binarni klasifikacijski problem na temelju dviju ulaznih varijabli. 
+# Podaci za učenje i testiranje prikazani su u ravnini x1–x2, pri čemu se jasno vidi razdvajanje klasa, ali i određeno preklapanje u području granice odluke.
+
+# Model uči linearnu granicu odluke koja dobro aproksimira razdvajanje klasa.
+
+# Kritički osvrt
+
+# Rezultati pokazuju da model postiže dobru točnost, preciznost i odziv, što znači da je većina uzoraka ispravno klasificirana. 
+# Međutim, pogreške se pojavljuju u području gdje se klase preklapaju, što je očekivano za linearni model.
+
+# Granica odluke je linearna, pa model ne može dobro opisati nelinearne odnose ako bi oni postojali u podacima.
+
+# Moguća poboljšanja
+
+# Točnost bi se mogla poboljšati korištenjem nelinearnih modela kao što su SVM s RBF kernelom ili modeli temeljeni na stablima odlučivanja. 
+# Također, povećanje broja podataka ili bolja separacija klasa mogla bi smanjiti broj pogrešnih klasifikacija.

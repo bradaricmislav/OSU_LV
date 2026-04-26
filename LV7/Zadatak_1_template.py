@@ -53,7 +53,7 @@ def generate_data(n_samples, flagc):
     return X
 
 # generiranje podatkovnih primjera
-X = generate_data(500, 5)
+X = generate_data(500, 1)
 
 # prikazi primjere u obliku dijagrama rasprsenja
 plt.figure()
@@ -73,3 +73,61 @@ plt.xlabel('$x_1$')
 plt.ylabel('$x_2$')
 plt.title('K-means grupiranje')
 plt.show()
+
+# Analiza dobivenih rješenja
+
+# U ovom zadatku korištena je metoda grupiranja K-srednjih vrijednosti (K-Means) na umjetno generiranim podacima. 
+# Funkcija generate_data() omogućuje generiranje različitih oblika skupova podataka kako bi se lakše uočile prednosti i ograničenja algoritma grupiranja.
+
+# Kod prve vrste generiranja podataka (flagc = 1) jasno su vidljive tri odvojene grupe. 
+# Takav skup podataka vrlo je pogodan za K-Means jer algoritam najbolje radi kada su grupe približno kružnog oblika i dobro međusobno odvojene. 
+# U tom slučaju grupiranje daje vrlo dobre rezultate i većina uzoraka bude ispravno pridružena odgovarajućoj grupi.
+
+# Kod druge vrste podataka (flagc = 2) grupe su izdužene i rotirane zbog linearne transformacije. 
+# Iako i dalje postoje tri prirodne grupe, K-Means može imati poteškoće jer pretpostavlja približno sferne klastere. 
+# Granice između grupa nisu jednako dobro određene kao u prvom slučaju.
+
+# Kod treće vrste (flagc = 3) postoje četiri grupe različitih veličina i različitih standardnih devijacija. 
+# Ovdje se vidi da K-Means slabije radi kada klasteri nisu jednake gustoće i veličine. Veći i raspršeniji klasteri mogu negativno utjecati na položaj centroida.
+
+# Kod četvrte vrste (flagc = 4) podaci imaju oblik koncentričnih krugova, dok kod pete vrste (flagc = 5) imaju oblik dva polumjeseca. 
+# Iako se vizualno jasno vide dvije grupe, K-Means ovdje daje loše rezultate jer koristi euklidsku udaljenost i linearne granice između centroida. 
+# Takvi nelinearni oblici nisu prikladni za ovaj algoritam.
+
+# Promjenom broja klastera K može se uočiti da premala vrijednost K uzrokuje spajanje različitih grupa u jednu, 
+# dok prevelika vrijednost K nepotrebno dijeli prirodne grupe na manje dijelove. 
+# Optimalan broj klastera najčešće odgovara stvarnom broju grupa u podacima.
+
+# Kritički osvrt na rezultate
+
+# Rezultati jasno pokazuju da uspješnost K-Means algoritma snažno ovisi o obliku i rasporedu podataka. 
+# Kada su klasteri kompaktni, dobro odvojeni i približno kružnog oblika, algoritam daje vrlo dobre rezultate.
+
+# Međutim, kod složenijih oblika poput izduženih klastera, 
+# klastera različitih gustoća ili nelinearnih struktura poput krugova i polumjeseca, kvaliteta grupiranja značajno opada. 
+# To je posljedica osnovne pretpostavke K-Means algoritma da su klasteri sferni i slične veličine.
+
+# Također, algoritam je osjetljiv na inicijalni odabir centroida. 
+# Višestrukim pokretanjem programa mogu se dobiti različiti rezultati, posebno kada se koristi slučajna inicijalizacija (init='random'). 
+# To može dovesti do lokalnog minimuma i lošijeg konačnog rješenja.
+
+# Jedan od problema je i potreba unaprijed zadanog broja klastera K. 
+# U stvarnim problemima taj broj često nije poznat, pa je potrebno koristiti dodatne metode za njegov odabir.
+
+# Predlaganje mogućih poboljšanja
+
+# Prvo poboljšanje bilo bi korištenje metode Elbow ili Silhouette Score za određivanje optimalnog broja klastera K umjesto ručnog odabira. 
+# Time bi rezultat bio objektivniji i pouzdaniji.
+
+# Drugo, umjesto slučajne inicijalizacije centroida (init='random') bolje je koristiti k-means++, 
+# koji obično daje stabilnije rezultate i smanjuje rizik lošeg početnog odabira centroida.
+
+# Za podatke složenijih oblika, poput koncentričnih krugova i polumjeseca, 
+# prikladnije bi bilo koristiti druge algoritme grupiranja poput DBSCAN ili hijerarhijskog grupiranja (Agglomerative Clustering), 
+# jer oni bolje prepoznaju nelinearne strukture.
+
+# Također, mogla bi se analizirati kvaliteta grupiranja pomoću dodatnih metrika poput inertia, 
+# silhouette score ili vizualizacije dendrograma kod hijerarhijskog grupiranja.
+
+# Na kraju, korisno bi bilo usporediti rezultate više različitih algoritama grupiranja na istom skupu podataka kako bi se 
+# jasnije vidjelo koji algoritam najbolje odgovara određenoj strukturi podataka.

@@ -170,3 +170,64 @@ grid.fit(X_train_n, y_train)
 
 print("Najbolji parametri:", grid.best_params_)
 print("Najbolja točnost:", grid.best_score_)
+
+# Analiza dobivenih rješenja
+
+# Najprije je primijenjena logistička regresija kao osnovni model za binarnu klasifikaciju kupovine oglasa. 
+# Dobivena točnost na skupu za učenje iznosi 0.825, dok je točnost na testnom skupu 0.900. 
+# Budući da je testna točnost čak veća od trening točnosti, ne može se govoriti o overfittingu. 
+# Vjerojatnije je riječ o slučajnoj raspodjeli podataka ili nešto lakšem testnom skupu.
+
+# Kod KNN algoritma za K = 5 dobiva se nelinearna granica odluke koja se bolje prilagođava stvarnoj raspodjeli podataka nego logistička regresija. 
+# Za razliku od logističke regresije koja daje linearnu granicu odluke, 
+# KNN omogućuje fleksibilniju klasifikaciju jer odluku donosi na temelju lokalnog susjedstva podataka.
+
+# Za K = 1 granica odluke postaje vrlo nepravilna i jako prati pojedinačne primjere iz skupa za učenje. 
+# Takav model često pokazuje vrlo visoku točnost na trening skupu, ali lošiju generalizaciju na testnom skupu, što ukazuje na overfitting.
+
+# Za K = 100 granica odluke postaje vrlo glatka i pojednostavljena. 
+# Model zanemaruje lokalne strukture u podacima te može doći do underfittinga jer previše generalizira.
+
+# Primjenom unakrsne validacije određena je optimalna vrijednost hiperparametra K, 
+# čime se smanjuje subjektivan odabir parametra i povećava pouzdanost modela.
+
+# Kod SVM modela s RBF kernelom granica odluke također postaje nelinearna i često preciznija od logističke regresije. 
+# Parametar C kontrolira koliko strogo model kažnjava pogreške klasifikacije.
+# Veći C vodi složenijoj granici odluke i mogućem overfittingu, dok manji C daje jednostavniju granicu i veću toleranciju na pogreške.
+
+# Parametar γ određuje koliko daleko utječe pojedini podatkovni primjer. 
+# Velika vrijednost γ stvara vrlo kompleksnu granicu odluke i povećava rizik prenaučenosti, dok mala vrijednost γ daje glatkiju granicu i stabilniji model.
+
+# GridSearchCV omogućuje pronalazak optimalnih vrijednosti parametara C i γ te poboljšava konačne performanse modela.
+
+# Kritički osvrt na rezultate
+
+# Rezultati pokazuju da logistička regresija daje vrlo dobre rezultate unatoč svojoj jednostavnosti. 
+# To sugerira da podaci možda nisu izrazito nelinearno razdvojivi te da linearni model može biti sasvim dovoljan.
+
+# KNN model pokazuje veću osjetljivost na odabir parametra K. 
+# Premala vrijednost vodi prenaučenosti, dok prevelika vrijednost vodi podnaučenosti. 
+# Zbog toga je pravilno određivanje optimalnog K ključno za uspješnost modela.
+
+# SVM s RBF kernelom često daje najbolje rezultate, ali zahtijeva pažljivo podešavanje hiperparametara. 
+# Bez optimizacije parametara model može biti lošiji od jednostavnijih metoda.
+
+# Jedan od mogućih problema je relativno mali skup podataka, zbog čega rezultati mogu značajno ovisiti o slučajnoj podjeli na train i test skup. 
+# To može objasniti zašto je testna točnost logističke regresije veća od trening točnosti.
+
+# Također, korištena je samo metrika točnosti (accuracy), što nije uvijek dovoljno. 
+# Ako su klase neuravnotežene, accuracy može dati varljivo dobar rezultat.
+
+# Predlaganje mogućih poboljšanja
+
+# Prvo poboljšanje bilo bi korištenje dodatnih evaluacijskih metrika poput precision, recall, F1-score i confusion matrix kako bi se dobila potpunija slika kvalitete modela.
+
+# Drugo, bilo bi korisno koristiti k-fold cross-validation za sve modele, a ne samo za optimizaciju hiperparametara, kako bi procjena performansi bila stabilnija i pouzdanija.
+
+# Treće, mogla bi se ispitati važnost dodatnih atributa poput spola korisnika, jer trenutni model koristi samo dob i procijenjenu plaću.
+
+# Kod SVM modela mogla bi se testirati i linearna, polinomijalna te sigmoid kernel funkcija radi usporedbe performansi i složenosti granice odluke.
+
+# Također, moguće je dodatno proširiti raspon hiperparametara u GridSearchCV kako bi se pronašlo još bolje rješenje.
+
+# Na kraju, korisno bi bilo analizirati pogrešno klasificirane primjere kako bi se bolje razumjelo gdje modeli najčešće griješe i postoji li obrazac u tim pogreškama.

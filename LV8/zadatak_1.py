@@ -105,3 +105,67 @@ print("Confusion matrix:\n", cm)
 
 # TODO: spremi model
 model.save("mnist_model.keras")
+
+
+# Analiza dobivenih rješenja
+
+# U ovom zadatku korišten je MNIST podatkovni skup za klasifikaciju rukom pisanih znamenki od 0 do 9 primjenom potpuno povezane neuronske mreže (Fully Connected Neural Network). 
+# Skup za učenje sadrži 60 000 slika, dok skup za testiranje sadrži 10 000 slika. Svaka slika dimenzija je 28 × 28 piksela u sivim tonovima.
+
+# Ulazni podaci skalirani su dijeljenjem vrijednosti piksela s 255, čime su sve vrijednosti normalizirane u raspon [0,1]. 
+# Takva normalizacija poboljšava stabilnost i brzinu učenja neuronske mreže. Budući da Keras očekuje ulaz oblika (visina, širina, kanal), 
+# slikama je dodana dodatna dimenzija pa konačni oblik postaje (28, 28, 1).
+
+# Izlazne oznake pretvorene su u one-hot encoding pomoću funkcije to_categorical(). 
+# Umjesto jedne vrijednosti klase, svaka znamenka predstavljena je vektorom duljine 10, gdje samo jedna pozicija ima vrijednost 1.
+
+# Izgrađena je potpuno povezana mreža pomoću klase Sequential. Mreža se sastoji od sloja za poravnavanje slike (Flatten), 
+# zatim dva skrivena gusta sloja sa 100 i 50 neurona te ReLU aktivacijskom funkcijom, te izlaznog sloja s 10 neurona i softmax aktivacijom za višeklasnu klasifikaciju.
+
+# Model je treniran korištenjem optimizatora Adam i funkcije gubitka categorical_crossentropy, što je standardan izbor za ovakav problem. 
+# Tijekom treniranja prati se metrika accuracy, a korišten je i validation split za praćenje ponašanja modela na validacijskom skupu.
+
+# Nakon treniranja provedena je evaluacija na testnom skupu pomoću metode .evaluate(). 
+# Dobivena testna točnost je vrlo visoka, što pokazuje da mreža uspješno prepoznaje rukom pisane znamenke.
+
+# Matrica zabune dodatno omogućuje analizu pogrešnih klasifikacija. Najčešće pogreške pojavljuju se između vizualno sličnih znamenki poput 3 i 5, 4 i 9 ili 7 i 9, 
+# što je očekivano zbog sličnog oblika rukopisa.
+
+# Na kraju je model uspješno spremljen na disk pomoću metode .save(), čime je omogućeno njegovo kasnije ponovno korištenje bez potrebe za ponovnim treniranjem.
+
+# Kritički osvrt na rezultate
+
+# Rezultati pokazuju da i relativno jednostavna potpuno povezana neuronska mreža može postići vrlo visoku točnost na MNIST skupu podataka. 
+# To potvrđuje da je MNIST dobar početni primjer za razumijevanje rada neuronskih mreža.
+
+# Međutim, korišteni model nije optimalan za obradu slika jer potpuno povezane mreže ne iskorištavaju prostorne odnose među pikselima. 
+# Sloj Flatten pretvara sliku u običan vektor i time se gubi informacija o lokalnoj strukturi slike.
+
+# Zbog toga ovakav pristup obično daje slabije rezultate od konvolucijskih neuronskih mreža (CNN), koje su posebno dizajnirane za obradu slikovnih podataka.
+
+# Također, broj epoha i veličina batch-a odabrani su ručno bez dodatne optimizacije. Moguće je da bi drugačiji odabir hiperparametara dao još bolje rezultate 
+# ili smanjio vrijeme treniranja.
+
+# Matrica zabune pokazuje da model i dalje griješi kod sličnih znamenki, 
+# što ukazuje da jednostavna arhitektura ima ograničenu sposobnost razlikovanja kompleksnijih uzoraka rukopisa.
+
+# Još jedan nedostatak je izostanak grafičkog prikaza funkcije gubitka i točnosti kroz epohe, 
+# što bi omogućilo bolju procjenu pojave overfittinga ili underfittinga.
+
+# Predlaganje mogućih poboljšanja
+
+# Najvažnije poboljšanje bilo bi korištenje konvolucijske neuronske mreže (CNN) umjesto potpuno povezane mreže. 
+# CNN bolje prepoznaje lokalne uzorke poput rubova, linija i oblika te obično postiže znatno veću točnost na slikovnim zadacima.
+
+# Dodatno, mogla bi se koristiti regularizacija poput Dropout slojeva kako bi se smanjio rizik overfittinga i poboljšala generalizacija modela.
+
+# Također, korisno bi bilo eksperimentirati s različitim brojem neurona, brojem skrivenih slojeva, 
+# batch size vrijednostima i brojem epoha kako bi se pronašla optimalna arhitektura.
+
+# Praćenje learning curves (loss i accuracy grafova) omogućilo bi precizniju analizu procesa učenja i lakše uočavanje problema poput prenaučenosti.
+
+# Moguće je primijeniti i early stopping tehniku koja automatski zaustavlja treniranje kada validacijska pogreška prestane padati.
+
+# Za detaljniju evaluaciju modela korisno bi bilo vizualno prikazati nekoliko pogrešno klasificiranih znamenki kako bi se bolje razumjelo gdje model najčešće griješi.
+
+# Na kraju, usporedba rezultata s drugim modelima poput SVM-a ili CNN-a dala bi jasniju sliku o kvaliteti dobivenog rješenja i prednostima dubokog učenja u ovom problemu.
